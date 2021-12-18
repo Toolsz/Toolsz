@@ -1,0 +1,73 @@
+<html>
+  <head>
+
+  </head>
+  <body>
+  <div class="wrapper">
+    <div class="container">
+      <h1>welcome to TkDot.Tk</h1>
+    </div>
+  </div>
+  </body>
+ <style type="text/css" media="all">
+
+:root {
+  --color-1: #186cb8;
+  --color-2: #2a9a9f;
+  --color-3: #11b8f1;
+  --color-4: #f9ac00;
+  --color-5: #f9ac00;
+}
+
+
+.wrapper {
+  user-select: none;
+  border-radius: 10px;
+  background-color: #000000;
+  line-height: 1;
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+}
+h1 {
+  font-family: "Exo", sans-serif;
+  font-size: 10vw;
+  font-weight: 900;
+  margin: auto;
+  text-transform: uppercase;
+  background: linear-gradient(219deg, 
+    var(--color-1) 19%, 
+    transparent 19%,transparent 20%, 
+    var(--color-2) 20%, var(--color-2)  39%,
+    transparent 39%,transparent 40%, 
+    var(--color-3) 40%,var(--color-3) 59% ,
+    transparent 59%,transparent 60%, 
+    var(--color-4) 60%, var(--color-4) 79%,
+    transparent 79%, transparent 80%, 
+    var(--color-5) 80%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.container {
+  padding: 1.rem;   
+  text-align: center;
+  background: radial-gradient(circle at 1.4% 1.4% ,var(--color-1) .8%,transparent  .8% ), 
+    radial-gradient(circle at 5.5% 3%,var(--color-2) .45% ,transparent .45% ), 
+    radial-gradient(circle at 2.5% 3.5%,var(--color-3) .5% ,transparent .5% ), 
+    radial-gradient(circle at 4.5% 1.2%,var(--color-4) .25%,transparent .25% ),
+
+    radial-gradient(circle at 98% 98% ,var(--color-1) .8%,transparent  .8% ), 
+    radial-gradient(circle at 95% 95%,var(--color-2) .45% ,transparent .45% ), 
+    radial-gradient(circle at 94.5% 97.5%,var(--color-3) .5% ,transparent .5% ), 
+    radial-gradient(circle at 98.5% 95.5%,var(--color-4) .25%,transparent .25% );
+}
+
+@media screen and (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}   
+ </style>
+</html>
