@@ -1,0 +1,154 @@
+@import 'https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap';
+@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:poppins,sans-serif;
+}
+
+body{
+  -webkit-tap-highlight-color: transparent;
+  min-height:80vh;
+  padding:0 10px;
+  background-image: url('https://images.unsplash.com/photo-1516205651411-aef33a44f7c2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8YWVzdGhldGljJTIwd2FsbHBhcGVyfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=700&q=60');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+::selection{
+  color:#fff;
+  background:#5372f0;
+}
+.wrapper{
+  width:605px;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(255, 255, 255, 0.5);  
+  border-radius:15px;
+  padding:30px 30px 25px;
+  box-shadow:0 12px 35px rgba(0,0,0,0.5);
+}
+.wrapper h2{
+  font-family: 'Caveat', cursive;
+  font-size:35px;
+  font-weight:600;
+  text-align:center;
+}
+.wrapper .content{
+  margin:35px 0;
+}
+.content .quote-area{
+  display:flex;
+  justify-content:center;
+}
+.quote-area i{
+  font-size:15px;
+}
+.quote-area i:first-child{
+  margin:3px 10px 0 0;
+}
+.quote-area i:last-child{
+  display:flex;
+  margin:0 0 3px 10px;
+  align-items:flex-end;
+}
+.quote-area .quote{
+  font-size:22px;
+  word-break:break-all;
+  text-align:center;
+}
+.content .author{
+  display:flex;
+  font-size:18px;
+  margin-top:20px;
+  margin-bottom: -30px;
+  font-style:italic;
+  justify-content:flex-end;
+}
+.author span:first-child{
+  margin:4px 5px 0 0;
+  font-family:monospace;
+}
+.wrapper .buttons{
+  border-top:1px solid #ccc;
+}
+.buttons .features{
+  display:flex;
+  margin-top:20px;
+  align-items:center;
+  justify-content:space-between;
+}
+.features ul{
+  display:flex;
+}
+.features ul li{
+  margin:0 5px;
+  height:47px;
+  width:47px;
+  display:flex;
+  cursor:pointer;
+  color:rgb(230,230,230);
+  background-color: #00000052;
+  list-style:none;
+  border-radius:50%;
+  align-items:center;
+  justify-content:center;
+  border:2px solid rgba(0,0,0,0.405);
+  transition:all .3s ease;
+}
+.features ul li:first-child{
+  margin-left:0;
+}
+ul li :hover,.active{
+  color:#fff;
+  background:#5372f0;
+}
+ul .speech.active{
+  pointer-events:none;
+}
+.buttons button{
+  border:none;
+  color:#000;
+  outline:none;
+  font-size:16px;
+  cursor:pointer;
+  padding:13px 22px;
+  border-radius:30px;
+  background:rgb(240,208,83);
+}.buttons button.loading{
+  opacity:.7;
+  pointer-events:none:
+}
+@media(max-width:450px){
+  .wrapper{
+    padding:25px 25px 20px;
+  }
+  .wrapper header{
+    font-size:29px;
+  }
+  .quote-area .quote{
+    font-size:20px;
+    word-break:keep-all;
+  }
+  .content .author{
+    font-size:16px;
+  }.quote-area i{
+    font-size:12px;
+  }
+  .features ul li{
+    margin:0 3px;
+    height:45px;
+    width:45px;
+  }
+  .buttons button{
+    font-size:15px;
+    padding:10px 18px;
+    box-shadow:2px 3px 1px rgba(0,0,0,0.5);
+  }
+
+}
