@@ -1,0 +1,224 @@
+body {
+  background: #000;
+  background-image: radial-gradient(ellipse at 50%, rgba(0, 0, 0, 0.008), rgba(0, 0, 0, 0.009));
+  position: relative;
+  padding-bottom: 10rem;
+  font-family: "Itim", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wall {
+  padding: 0 5rem;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  grid-column-gap: 4rem;
+  max-width: 90rem;
+  margin: auto;
+  position: relative;
+}
+@media (min-width: 40rem) {
+  .wall {
+    grid-template-columns: 1fr 1.2fr 1fr;
+  }
+}
+@media (min-width: 70rem) {
+  .wall {
+    grid-template-columns: 1fr 1.5fr 0.6fr 0.3fr 1.4fr 1fr;
+  }
+}
+
+.wire {
+  position: relative;
+  height: auto;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 70rem) {
+  .wire:nth-child(2n) {
+    transform: translateY(-14rem);
+  }
+  .wire:nth-child(3) {
+    transform: translateY(-8rem);
+  }
+  .wire:nth-child(4) {
+    z-index: -1;
+  }
+  .wire:nth-child(6) {
+    transform: translateY(-3rem);
+  }
+}
+.wire svg {
+  margin: auto;
+}
+
+.light {
+  height: 1.5rem;
+  width: 0.6rem;
+  background: #fff3e8;
+  border-radius: 100%;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+.light:before {
+  content: "";
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #fff;
+  box-shadow: 0px 0px 10px #FFEB3B, inset 0 -0.35rem 0.6rem #eebd39, 0 1rem 5rem 3rem rgba(255, 174, 71, 0.5), 0 1rem 4rem 9rem rgba(234, 162, 58, 0.1);
+}
+
+.light--one {
+  top: 5%;
+  transform: translateX(-15%) rotate(120deg);
+}
+.light--two {
+  top: 20%;
+  transform: translateX(90%) rotate(-50deg);
+}
+.light--three {
+  top: 35%;
+  transform: translateX(-10%) rotate(-5deg);
+}
+.light--four {
+  top: 50%;
+  transform: translateX(-90%) rotate(-105deg);
+}
+.light--five {
+  top: 65%;
+  transform: translateX(-70%) rotate(15deg);
+}
+.light--six {
+  top: 80%;
+  transform: translateX(-100%) rotate(-105deg);
+}
+
+.polaroid {
+  position: absolute;
+  padding: 0.5rem 0.5rem 2rem;
+  background: #ffffff;
+  border: 3px solid #000;
+  line-height: 0;
+  box-shadow: 0 2px 55px rgba(255, 255, 255, 0.3);
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  text-decoration: none;
+  color: #000;
+  transition: transform 0.35s ease;
+}
+.polaroid:before {
+  content: "";
+  width: 1.4rem;
+  height: 5rem;
+  background: linear-gradient(to bottom, #c28f52, #edc491 73%, #222 73%, #222 78%, #edc491 78%);
+  top: -3rem;
+  left: 40%;
+  position: absolute;
+  transform: rotate(-25deg);
+  border-radius: 3px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6);
+}
+.polaroid:after {
+  content: attr(data-name);
+  width: 100%;
+  bottom: 1rem;
+  left: 0;
+  position: absolute;
+  font-size: 90%;
+}
+.polaroid img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+  object-position: top left;
+  border: 2px solid #000;
+}
+.polaroid--one {
+  top: 20%;
+  transform: rotate(-2deg) translateX(-50%);
+}
+.polaroid--two {
+  top: 60%;
+}
+.polaroid--two:before {
+  transform: rotate(15deg);
+}
+.polaroid--three {
+  top: 30%;
+  transform: rotate(3deg) translateX(-50%);
+}
+.polaroid--three:before {
+  transform: rotate(35deg);
+}
+.polaroid--four {
+  top: 77%;
+  transform: rotate(1.5deg) translateX(-55%);
+}
+.polaroid--four:before {
+  transform: rotate(-10deg);
+}
+.polaroid--five {
+  top: 35%;
+  left: 60%;
+}
+.polaroid--five:before {
+  transform: rotate(20deg);
+}
+.polaroid--six {
+  top: 55%;
+  left: 60%;
+  transform: rotate(2deg) translateX(-50%);
+}
+.polaroid--six:before {
+  content: none;
+}
+.polaroid--six:before {
+  content: "";
+  width: 55%;
+  height: 30px;
+  top: -20px;
+  z-index: 5;
+  left: 25%;
+  transform: rotate(-2deg);
+  position: absolute;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  background: rgba(220, 220, 220, 0.3);
+}
+.polaroid--seven {
+  top: 12%;
+  left: 60%;
+}
+.polaroid--seven:before {
+  transform: rotate(-15deg);
+}
+.polaroid--eight {
+  top: 60%;
+  transform: rotate(3deg) translateX(-50%);
+}
+.polaroid--eight:before {
+  transform: rotate(18deg);
+}
+.polaroid--nine {
+  top: 25%;
+  transform: rotate(-2deg) translateX(-50%);
+}
+.polaroid--nine:before {
+  transform: rotate(18deg);
+}
+.polaroid--ten {
+  top: 70%;
+}
+.polaroid:hover {
+  transform: scale(1.1) translateX(-50%);
+  z-index: 100;
+}
