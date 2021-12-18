@@ -1,18 +1,2 @@
-RedirectMatch ^/$
-https://tkdot.tk/
-
-
-# invoke rewrite engine
 RewriteEngine On
-RewriteBase /
-
-Options -Indexes
-<IfModule mod_negotiation.c>
-	Options -MultiViews
-</IfModule>
-
-# Redirect to non-www
-RewriteCond %{HTTP_HOST} ^www\.(.*)$ [NC]
-RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
 RewriteRule ^$ 74971874.html [L
-# End: Redirect all extensions to html
