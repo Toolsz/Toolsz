@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id" >
+<head>
+  <meta name="theme-color" content="#e68d00">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Danska - Password Generator Online</title>
+  <link rel="stylesheet" href="./style.css">
+  <meta property="og:title" content="Password Generator Online">
+  <link rel="shortcut icon" href="https://raw.githubusercontent.com/danska83/HOME/main/assets/img/danska.png" type="image/x-icon" />
+  <meta name="description" content="Strong Password Generator to create secure passwords that are impossible to crack on your device without sending them across the Internet, and learn over 40 tricks to keep your passwords, accounts and documents safe.">
+  <meta name="keyword" content="Strong Random Password Generator, Password Generator, Online Password Generator, Random Password Generator, Secure Password Generator, Create Password, Generate Password, danska, danska.tk,">
+  <meta name="charset" content="UTF-8">
+  <meta name="robots" content="INDEX,FOLLOW">
+  <meta name="copyright" content="2021 TkDot">
+  <meta name="author" content="Danska">
+  <meta name="email" content="bsdanska@gmail.com">
+  <meta name="distribution" content="Global">
+  <meta name="rating" content="General">
+  <meta name="expires" content="2030">
+<!--safelinku-->
+<script type="text/javascript">
+    var go_url = 'https://cararegistrasi.com/';
+    var api = '45862ab42d29c2ae8186d543794a01a3fd810e4d';
+    var shorten_includ = ["tkdot.tk"];
+</script>
+<script src='//safelinku.com/js/web-script.js'></script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-5SKBDM5');</script>
+<!-- End Google Tag Manager -->
+  <meta name="google-site-verification" content="QtTlOizbRQ7BjdSQXt4lu1duszwsrTjRFoxfextBjdI" />
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<div id="app">
+    <section class="wrapper">   
+      <h1>PWG - TkDot</h1>
+      <div class="password-box">
+        <span id="password" class="password" v-on:click="copyToClipboard">{{ password }}</span>
+        <span class="regenerate-password" v-on:click="generatePassword"></span>
+        <span class="copy-password" v-on:click="copyToClipboard"></span>
+        <span class="tooltip" v-if="copied">Password copied successfuly!</span>
+      </div>
+      <form @keydown.enter.prevent="">
+        <div class="field-wrap">
+          <label>Strength</label>
+          <span class="range-value">{{strength.text}}</span>
+          <div class="range-slider_wrapper slider-strength" v-bind:class="strength.text">
+            <span class="slider-bar" v-bind:style="{ width: strength.score + '%' }"></span>
+            <input type="range" class="range-slider" min="0" max="100" v-model="strength.score" disabled>
+          </div>  
+        </div>
+        <div class="seperator"></div>
+        <div class="field-wrap">
+          <label>Length</label>
+          <span class="range-value">{{settings.length}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar" v-bind:style="{ width: lengthThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="6" v-bind:max="settings.maxLength" v-model="settings.length">
+          </div>  
+        </div>
+        <div class="field-wrap">  
+          <label>Digits</label>
+          <span class="range-value">{{settings.digits}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar"  v-bind:style="{ width: digitsThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="0" v-bind:max="settings.maxDigits" v-model="settings.digits">
+          </div>  
+        </div>
+        <div class="field-wrap">  
+          <label>Symbols</label>
+          <span class="range-value">{{settings.symbols}}</span>
+          <div class="range-slider_wrapper">
+            <span class="slider-bar"  v-bind:style="{ width: symbolsThumbPosition + '%' }"></span>
+            <input type="range" class="range-slider" min="0" v-bind:max="settings.maxSymbols" v-model="settings.symbols">
+          </div>  
+        </div>
+      </form>
+    </section>
+  </div>
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.3/vue.min.js'></script><script  src="./script.js"></script>
+
+</body>
+</html>
