@@ -119,7 +119,7 @@ Password Generator<span aria-hidden>_</span>
       <!--______-->
       <!--Cookies-->
 <div class=cookie>
-<img src=https://cdn-icons-png.flaticon.com/512/2720/2720870.png alt="Danska Cookies">
+<img src=https://cdn-icons-png.flaticon.com/512/2720/2720870.png alt="TkDot Cookies">
 <div class=cookie2>
 <header>Cookies Consent</header>
 <p>To ensure the best experience on our website, we recommend that you allow cookies.</p>
@@ -135,7 +135,7 @@ const cookieBox = document.querySelector(".cookie"),
 
     acceptBtn.onclick = ()=>{
       //setting cookie for 1 month, after one month it'll be expired automatically
-      document.cookie = "CookieBy=Danska; max-age="+60*60*24*30;
+      document.cookie = "CookieBy=TkDot; max-age="+60*60*24*30;
       if(document.cookie){ //if cookie is set
         cookieBox.classList.add("hide"); //hide cookie box
       }else{ //if cookie not set then alert an error
@@ -147,10 +147,6 @@ const cookieBox = document.querySelector(".cookie"),
     checkCookie != -1 ? cookieBox.classList.add("hide") : cookieBox.classList.remove("hide");
 </script>
 
-
-<p id="token"></p>
-<script src="https://tkdot.tk/framework/java-script/notifi.js"></script>
-<script src="https://tkdot.tk/framework/java-script/firebase-messaging-sw.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js"></script>
