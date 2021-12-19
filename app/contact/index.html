@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="theme-color" content="#e68d00">
+    <title>Contact - TkDot</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="https://tkdot.tk/assets/img/danska.png" type="image/x-icon" />
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+    <!--script-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+    <script>
+      const scriptURL = 'https://script.google.com/macros/s/AKfycbxCCEfZHHHPOUWfye8SkTsh6c4oVymV2PpS8foTYRyV_WQdDWeumHF5ju6BhtqtLWD9PQ/exec';
+      const form = document.forms['tkdot-contact'];
+      const btnKirim = document.querySelector('.btn-kirim');
+      const btnDone = document.querySelector('.btn-done');
+      const formAlert = document.querySelector('.form-alert');
+  
+  
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        btnDone.classList.toggle('d-none');
+        btnKirim.classList.toggle('d-none');
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            btnDone.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            formAlert.classList.toggle('d-none');
+            form.reset();
+            console.log('Success!', response);
+          })
+          .catch(error => console.error('Error!', error.message))
+      })
+    </script>
+   </head>
+<body>
+  <div class="container">
+    <div class="content">
+      <div class="left-side">
+        <div class="email details">
+          <i class="fas fa-envelope"></i>
+          <div class="topic">Email</div>
+          <div class="text-one">bsdanska@gmail.com</div>
+          <div class="text-two">im4u.but.u4him@gmail.com</div>
+        </div>
+      </div>
+      <div class="right-side">
+
+        
+
+        <div class="alert alert-success alert-dismissible fade d-none form-alert" role="alert">
+          <strong>Terimakasih</strong> Pesan telah terkirim.
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+        <div class="topic-text">Kirim Pesan</div>
+        <p class="t">Jika ada pertanyaan silahkan isi dibawah.</p>
+          
+        <form name="tkdot-contact">
+          <div class="input-box">
+            <input type="text" placeholder="Masukan Nama Anda" name="nama">
+          </div>
+          <div class="input-box">
+            <input type="text" placeholder="Masukan Alamat Email" name="email">
+          </div>
+          <div class="input-box message-box">
+            <textarea placeholder="Masukan Pesan" name="pesan"></textarea>
+          </div>
+          <div class="button btn-kirim">
+            <button type="submit">Kirim</button>
+          </div>
+          <div class="button btn-done d-none">
+            <button type="submit">Terkirim</button>
+          </div>
+          
+        </form>
+    </div>
+    </div>
+  </div>
+</body>
+</html>
