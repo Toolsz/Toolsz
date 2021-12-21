@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "EuclidBold";
+  font-weight: 900;
+  font-style: normal;
+  src: url("EuclidCircularB-Semibold.otf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "EuclidMedium";
+  font-weight: 500;
+  font-style: normal;
+  src: url("EuclidCircularB-Medium.otf");
+  font-display: swap;
+}
+@font-face {
+  font-family: "EuclidRegular";
+  font-weight: 400;
+  font-style: normal;
+  src: url("EuclidCircularB-Regular.otf");
+  font-display: swap;
+}
