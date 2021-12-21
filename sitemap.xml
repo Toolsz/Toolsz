@@ -19,4 +19,16 @@
 		<url>
 			<loc>https://tkdot.tk/app/pwg/</loc>
 		</url>
+                <url>
+                        <loc>http://www.google.com/ping?sitemap=https://tkdot.tk/sitemap.xml</loc>
+                </url>
+                <url>
+                        <loc>http://www.bing.com/webmaster/ping.aspx?siteMap=https://tkdot.tk/sitemap.xml</loc>
+                </url>
+                <url>
+                        <loc>http://blogs.yandex.ru/pings/?status=success&url=https://tkdot.tk/sitemap.xml</loc>
+                </url>
+                <url>
+                        <loc>http://ping.baidu.com/ping.html=https://tkdot.tk/sitemap.xml</loc>
+                </url>
 	</urlset>
