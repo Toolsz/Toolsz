@@ -1,2 +1,25 @@
-RewriteEngine On
-RewriteRule ^$ 74971874.html [L
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^tkdot.tk[nc]
+RewriteRule ^(.*)$ http://www.tkdot.tk/$1 [r=301,nc]
+
+//Caching schema
+<FilesMatch "\.(jpg|jpeg|png|css|js)$">
+Header set Cache-Control "private, max-age=600"
+</FilesMatch>
+
+//Prevent directory listings
+Options All -Indexes
+
+//Stop hotlinking
+RewriteCond %{HTTP_REFERER} !^$
+RewriteCond %{HTTP_REFERER} !^http://(www\.)?https://tkdot.tk/.*$ [NC]
+RewriteRule \.(jpg|jpeg|html|css|js)$ tkdot.tk/assets/img/danska.png[R=302,L]
+
+//Prevent viewing of .htaccess file
+<Files .htaccess>
+order allow,deny
+deny from all
+</Files>
+
