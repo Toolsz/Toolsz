@@ -1,6 +1,7 @@
 //Rewrite to www
 Options +FollowSymLinks
 RewriteEngine on
+RewriteRule ^robots.txt - [L]
 RewriteCond %{HTTP_HOST} ^tkdot.tk[nc]
 RewriteRule ^(.*)$ http://www.tkdot.tk/$1 [r=301,nc]
 
