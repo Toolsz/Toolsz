@@ -52,7 +52,6 @@ header {
   transition: 0.4s;
   transition-delay: 0.5s;
   max-height: 0;
-  color: #fff;
 }
 
 menuitem {
@@ -64,7 +63,7 @@ menuitem {
   cursor: pointer;
   opacity: 0;
   text-transform: capitalize;
-  color: #fff;
+  color: #00000079;
 }
 menuitem:hover {
   background: rgba( 255, 255, 255, 0.25 );
