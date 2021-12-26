@@ -1,0 +1,71 @@
+@import url(https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap);
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Poppins, sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+::-webkit-input-placeholder {
+    color: #ffffff83;
+}
+
+body {
+    background: linear-gradient(90deg, #f5a500 80%, #e68d00 10%);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.txt-minify {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    text-align: center;
+}
+
+#textarea {
+    outline: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    padding: 10px;
+    width: 90%;
+    min-height: 60vh;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 4px;
+    background: #00000088;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+    font-size: 16px;
+    resize: none;
+    overflow-x: hidden height: 623px;
+    color: #55ff12;
+}
+
+.group {
+    text-align: center;
+    justify-content: center;
+}
+
+.btn {
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #ffffff88;
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37);
+    backdrop-filter: blur( 4px);
+    -webkit-backdrop-filter: blur( 4px);
+}
+
+button:hover {
+    background-color: #ffffff57;
+    outline: none;
+    list-style: none;
+}
