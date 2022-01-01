@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerJS test</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/immutable@4.0.0-rc.12/dist/immutable.min.js"
+            integrity="sha256-2c5eQW1HkxjqEKN6dj1RihWLh9GZP48aoG4u7FSZg3o=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<main x-data="participant()" x-init="initInstance()" class="container mt-4 mw-50">
+    <section x-show="!peer.connected" class="card">
+        <div class="card-header">
+            Join a room
+        </div>
+        <div class="card-body">
+            <div x-show="peer.closed" class="alert alert-danger"><b>Snap!</b> That room is now closed. how sad :(. No
+                worries, you can always join a new room or
+                <a href="./room-master.html">Create</a> a room!
+            </div>
+            <p class="d-block">Join an active session now!</p>
+            <div class="d-flex align-items-center">
+                <div class="me-2">Username</div>
+                <div class="me-2 flex-grow-1">
+                    <input type="text" x-model="temp_username" class="form-control" autocomplete="off">
+                </div>
+            </div>
+
+            <div class="d-flex align-items-center">
+                <div class="me-2">Room ID</div>
+                <div class="me-2 flex-grow-1">
+                    <input type="text" x-model="peer.room_id" class="form-control" autocomplete="off">
+                </div>
+            </div>
+
+            <button class="btn btn-primary" @click="connect">Connect!</button>
+        </div>
+    </section>
+
+    <section x-show="peer.connected">
+        <div class="alert alert-success" role="alert">
+            Welcome to the chat (You are <span x-text="username"></span>)
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Chat room
+            </div>
+            <div class="card-body" style="max-height: 600px; height: 600px; overflow-y: scroll; padding: 20px;">
+                <template x-for="(item, index) in chat" :key="index">
+                    <div class="mb-2">
+                        <template x-if="item.sender === username">
+                            <p><b><span x-text="item.sender"></span></b> : <span x-text="item.message"></span></p>
+                        </template>
+                        <template
+                                x-if="item.sender.toLowerCase() === 'system' || item.sender.toLowerCase() === 'modbot'">
+                            <p class><span class="text-danger" x-text="item.sender"></span> : <span
+                                    x-text="item.message"></span></p>
+                        </template>
+                        <template
+                                x-if="item.sender !== username && item.sender.toLowerCase() !== 'system' && item.sender.toLowerCase() !== 'modbot'">
+                            <p><span x-text="item.sender"></span> : <span x-text="item.message"></span></p>
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            <div class="card-footer text-muted">
+                <div class="d-flex align-items-center">
+                    <div class="me-2">Send a message</div>
+                    <div class="me-2 flex-grow-1">
+                        <input x-on:keydown.enter="sendMessage" :disabled="delayed" type="text"
+                               x-model="send_message_text"
+                               placeholder="Send message (max 2000 character)"
+                               class="form-control" autocomplete="off">
+                    </div>
+                    <div>
+                        <button type="submit" :disabled="delayed" @click="sendMessage" class="btn btn-primary">
+                            Send!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="http://chancejs.com/chance.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+        crossorigin="anonymous"></script>
+<script>
+
+    function participant() {
+        return {
+            temp_username: "",
+            username: "",
+            delayed: false,
+            send_message_text: "",
+            peer: {
+                connected: false,
+                closed: false,
+                room_id: "",
+                connection: null,
+                instance: null
+            },
+
+            chat: [],
+            initInstance() {
+                this.peer.instance = new Peer(`${randId()}`, {debug: 3});
+            },
+            connect() {
+                if (this.peer.room_id !== "") {
+                    this.username = `${this.temp_username === "" ? "anonymous" : this.temp_username}#${chance.integer({
+                        min: 10000,
+                        max: 99999
+                    })}`;
+
+                    this.peer.connection = this.peer.instance.connect(this.peer.room_id);
+
+                    this.peer.connection.on('open', () => {
+                        console.log('Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! Connected! ');
+                        this.peer.connection.send({
+                            sender: "System",
+                            message: `${this.username} Joined the chat.`
+                        });
+
+                        this.peer.connected = true;
+                        this.peer.closed = false;
+                    });
+
+                    this.peer.connection.on('close', () => {
+                        this.peer.connected = false;
+                        this.chat = [];
+                        this.peer.closed = true;
+                    });
+
+                    this.peer.connection.on('data', (data) => {
+                        this.addChat({
+                            sender: data.sender,
+                            message: data.message,
+                        });
+                    });
+
+                }
+            },
+
+            addChat(data) {
+                this.chat = [...this.chat, data];
+            },
+
+            sendMessage() {
+                if (this.delayed) {
+                    this.addChat({
+                        sender: "Modbot",
+                        message: "There's a delay for each message to reduce. please wait..."
+                    })
+                } else if (!(this.send_message_text === "")) {
+                    this.peer.connection.send({sender: this.username, message: this.send_message_text.substr(0,2000)});
+                    this.delayed = true;
+                    setTimeout(() => {
+                        this.delayed = false;
+                    }, 500);
+                    this.send_message_text = ""
+                }
+
+            }
+        }
+    }
+
+    function randId() {
+        const chanceSize = {min: 1000, max: 9999}
+        return chance.integer(chanceSize) + '-' + chance.integer(chanceSize) + '-' + chance.integer(chanceSize);
+    }
+
+    // function hostRoom(){
+    //    return {
+    //         peerIdConnect: null,
+    //
+    //         auth: {
+    //             username: null,
+    //             password: "",
+    //             authenticated: true,
+    //         },
+    //
+    //         peer: null,
+    //         peerId: null,
+    //         connection: null,
+    //         peerConnected: false,
+    //
+    //         messageToSend: "",
+    //         initPeer(){
+    //             this.peer = new Peer(`${randId()}`, { debug: 3 });
+    //         },
+    //         connect(){
+    //             this.connection = this.peer.connect(this.peerIdConnect);
+    //             this.connection.on('open', () => {
+    //                 console.log('Connected!');
+    //                 this.connection.send({
+    //                     sender: "System",
+    //                     message: "Someone joined, very big peepee"
+    //                 });
+    //                 this.peerConnected = true;
+    //             });
+    //
+    //             this.peer.on('disconnected', () => {
+    //                 this.peerConnected = false;
+    //             });
+    //
+    //             this.connection.on('data', (data) => {
+    //                 console.log(data);
+    //                 data.type === 0 ? this.auth.authenticated = data.auth : null
+    //             });
+    //         },
+    //         sendMessage(){
+    //             !this.auth.authenticated
+    //                 ? this.connection.send({type:0, password: this.auth.password})
+    //                 : this.connection.send({type:1, username: this.auth.username, message: this.messageToSend});
+    //             console.log('message sent!');
+    //         }
+    //     }
+    // }
+    //
+    //
+
+
+</script>
+</body>
+</html>

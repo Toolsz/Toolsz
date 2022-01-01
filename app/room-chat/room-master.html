@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerJS test</title>
+    <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/immutable@4.0.0-rc.12/dist/immutable.min.js"
+            integrity="sha256-2c5eQW1HkxjqEKN6dj1RihWLh9GZP48aoG4u7FSZg3o=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+<main x-data="hostRoom()" class="container mt-4 mw-50">
+    <section x-show="!peer.connected" class="card">
+        <div class="card-header">
+            Create a room
+        </div>
+        <div class="card-body">
+            <p class="d-block">You must enter your username to start a session</p>
+            <div class="d-flex align-items-center">
+                <div class="me-2">Username</div>
+                <div class="me-2 flex-grow-1">
+                    <input type="text" x-on:keydown.enter="startPeer" x-model="temp_username" class="form-control"
+                           autocomplete="off">
+                </div>
+                <div>
+                    <button type="submit" @click="startPeer()" class="btn btn-primary">
+                        Connect!
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section x-show="peer.connected">
+        <div class="alert alert-success" role="alert">
+            You've set up the chat server. now anyone can join with this room ID:
+            <code><span x-text="peer.id"></span></code>
+        </div>
+        <div class="card">
+            <div class="card-header">
+                Your chat room (You are <span x-text="username"></span>)
+            </div>
+            <div class="card-body" style="max-height: 600px; height: 600px; overflow-y: scroll; padding: 20px;">
+                <template x-for="(item, index) in chat" :key="index">
+                    <div class="mb-2">
+                        <template x-if="item.sender === username">
+                            <p><b><span x-text="item.sender"></span></b> : <span x-text="item.message"></span></p>
+                        </template>
+                        <template
+                                x-if="item.sender.toLowerCase() === 'system' || item.sender.toLowerCase() === 'modbot'">
+                            <p><span class="text-danger" x-text="item.sender"></span> : <span
+                                    x-text="item.message"></span></p>
+                        </template>
+                        <template
+                                x-if="item.sender !== username && item.sender.toLowerCase() !== 'system' && item.sender.toLowerCase() !== 'modbot'">
+                            <p><span x-text="item.sender"></span> : <span x-text="item.message"></span></p>
+                        </template>
+                    </div>
+                </template>
+            </div>
+            <div class="card-footer text-muted">
+                <div class="d-flex align-items-center">
+                    <div class="me-2">Send a message</div>
+                    <div class="me-2 flex-grow-1">
+                        <input x-on:keydown.enter="sendMessage" :disabled="delayed" type="text"
+                               x-model="send_message_text"
+                               placeholder="Send message (max 2000 character)"
+                               class="form-control" autocomplete="off">
+                    </div>
+                    <div>
+                        <button type="submit" :disabled="delayed" @click="sendMessage" class="btn btn-primary">
+                            Send!
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<script src="https://unpkg.com/peerjs@1.3.1/dist/peerjs.min.js"></script>
+<script src="http://chancejs.com/chance.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous">
+</script>
+<script>
+    function hostRoom() {
+        return {
+            temp_username: "",
+            username: "my",
+            delayed: false,
+            send_message_text: "",
+            peer: {
+                connected: false,
+                id: null,
+                connection: null
+            },
+            connections: Immutable.Map({}),
+            chat: [],
+
+            startPeer() {
+                this.username = `${this.temp_username === "" ? "anonymous" : this.temp_username}#${chance.integer({
+                    min: 10000,
+                    max: 99999
+                })}`;
+
+                this.peer.instance = new Peer(randId(), {debug: 3});
+
+                this.peer.instance.on('open', id => {
+                    this.peer.connected = true;
+                    this.peer.id = id
+                });
+
+
+                this.peer.instance.on('open', () => {
+                    this.addChat({
+                        sender: "System",
+                        message: "Signaling established, waiting for peer to connect..."
+                    });
+                });
+
+                this.peer.instance.on('connection', connection => {
+                    connection.on('open', () => {
+                        this.connections = this.connections.set(
+                            connection.peer,
+                            connection,
+                        );
+                        console.log('connections', this.connections);
+                    });
+
+                    connection.on('data', (data) => {
+                        this.broadcastAndChat({
+                            sender: data.sender,
+                            message: data.message,
+                            peers: this.generatePeerList(),
+                        });
+
+                    });
+
+                    connection.on('close', () => {
+                        this.connections = this.connections.delete(
+                            connection.peer.toString(),
+                        );
+                        //this.updatePeerList();
+                    });
+                });
+            },
+
+            broadcast(data) {
+                this.connections.forEach((connection) =>
+                    connection.send(data),
+                );
+            },
+
+            broadcastAndChat(data) {
+                this.broadcast(data);
+                this.addChat(data);
+            },
+
+            updatePeerList() {
+                // too lazy to implement
+            },
+
+            generatePeerList() {
+                return this.connections
+                    .map((connection) => connection.peer)
+                    .toList()
+                    .join(', ');
+            },
+
+            sendMessage() {
+                const data = {
+                    sender: this.username,
+                    message: this.send_message_text.substr(0,2000)
+                }
+
+                if (this.delayed) {
+                    this.addChat({
+                        sender: "Modbot",
+                        message: "There's a delay for each message to reduce. please wait..."
+                    })
+                } else if (!(this.send_message_text === "")) {
+                    this.broadcastAndChat({
+                        ...data,
+                        peers: this.generatePeerList(),
+                    });
+
+                    this.delayed = true;
+
+                    setTimeout(() => {
+                        this.delayed = false;
+                    }, 500);
+
+                    this.send_message_text = ""
+                }
+
+            },
+
+            addChat(data) {
+                this.chat = [...this.chat, data];
+            }
+        }
+    }
+
+
+    function randId() {
+        const chanceSize = {
+            min: 1000,
+            max: 9999
+        }
+        return chance.integer(chanceSize) + '-' + chance.integer(chanceSize) + '-' + chance.integer(chanceSize);
+    }
+</script>
+</body>
+</html>
