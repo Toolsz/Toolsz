@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css?family=Staatliches');
+@import url('https://cdn.jsdelivr.net/npm/hack-font@3/build/web/hack.css');
+center{
+  margin-top: 5px;
+}
+textarea {
+  border: 1px solid #093A6B;
+ border-radius: 4px;
+  min-height: 25vh;
+  width: 98.9%;
+  resize: none;
+  outline-style: none;
+  overflow: auto;
+  background: #ffffff79;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  color: #000000;
+  font-family: Hack, Monospace;
+  -webkit-tap-highlight-color: transparent;
+}
+.img-foot{
+  width: 40px;
+  height: auto;
+  margin: 0 auto;
+  padding: 0;
+  display: block;
+  border: 2px solid #ffffff;
+  border-radius: 50%;
+  margin-top: 15px;
+}
+
+input {
+  background: #ffffff79;
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 4px );
+  -webkit-backdrop-filter: blur( 4px );
+  font-family: Staatliches;
+  color: #000000af;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+}
+input:hover{
+  background:#a0a0a079;
+  box-shadow: 0 8px 32px 0 #ffffff5e;
+}
+
+font {
+  font-family: Hack, Monospace;
+  color: #ffffff96;
+}
+
+*{
+  user-select: none;
+}
+
+body{
+  background: linear-gradient(90deg, #f5a500 80%, #e68d00 10%);
+}
+body::-webkit-scrollbar {
+  width: 12px;
+  /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e1e1e;
+  /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #1e1e1e;
+  /* color of the scroll thumb */
+  border: 3px solid gray;
+  /* creates padding around scroll thumb */
+}
+a:link { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:active { text-decoration: none; }
