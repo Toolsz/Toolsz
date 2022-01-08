@@ -10,7 +10,7 @@
   --first-color: hsl(var(--hue), 91%, 54%);
   --first-color-alt: hsl(var(--hue), 91%, 50%);
   --title-color: hsl(var(--hue), 4%, 100%);
-  --text-color: hsl(var(--hue), 4%, 85%);
+  --text-color: hsl(var(--hue), 4%, 1%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
 
   /*Green gradient*/
