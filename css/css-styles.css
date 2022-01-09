@@ -10,7 +10,7 @@
   --first-color: hsl(var(--hue), 91%, 54%);
   --first-color-alt: hsl(var(--hue), 91%, 50%);
   --title-color: hsl(var(--hue), 4%, 100%);
-  --text-color: hsl(var(--hue), 4%, 1%);
+  --text-color: hsl(var(--hue), 4%, 85%);
   --text-color-light: hsl(var(--hue), 4%, 55%);
 
   /*Green gradient*/
@@ -86,7 +86,7 @@ body{
   margin: var(--header-height) 0 0 0;
   font-family: 'Poppins', sans-serif;
   font-size: var(--normal-font-size);
-  background: linear-gradient(90deg, #f5a500 80%, #e68d00 10%);
+  background: linear-gradient(90deg, #3f8aa9 80%, #389ec8 10%);
   color: var(--text-color);
 }
 
@@ -146,11 +146,16 @@ button{
 .main{
   overflow: hidden; /*For animation*/
 }
-
+/*LIVE-CHAT*/
+.live-chat{
+  border: 3px solid #ffffff40;
+  border-radius: 10px;
+  background: #ffffff40;
+  overflow: hidden;
+}
 /*=============== HEADER ===============*/
 .header{
   width: 100%;
-  background: linear-gradient(90deg, #f5a500 80%, #e68d00 10%);
   position: fixed;
   top: 0;
   left: 0;
@@ -187,10 +192,10 @@ button{
   font-size: 1.25rem;
   cursor: pointer;
 }
-.update_baru li{
-  margin: 0 30px;
-  text-align: left;
-  color: black;
+
+/*=============== Update Terbaru ===============*/
+.update-bg{
+  margin: 0 40px;
 }
 
 @media screen and (max-width: 767px){
@@ -364,6 +369,13 @@ button{
   border-radius: .5rem;
 }
 
+/*=============== Update Terbaru ===============*/
+.update_baru li{
+  margin: 0 30px;
+  text-align: left;
+  color: black;
+}
+
 /*=============== BUTTONS ===============*/
 .button{
   display: inline-block;
@@ -414,7 +426,7 @@ button{
 }
 
 .category__img{
-  width: 120px;
+  max-width: 80px;
   margin-bottom: var(--mb-0-50);
   transition: .3s;
 }
@@ -466,8 +478,7 @@ button{
   transition: .3s;
 }
 
-.trick__subtitle,
-.trick__price{
+.trick__subtitle{
   display: block;
 }
 
@@ -476,8 +487,7 @@ button{
   margin-bottom: var(--mb-0-5);
 }
 
-.trick__title,
-.trick__price{
+.trick__title{
   color: var(--title-color);
   font-weight: var(--font-medium);
   font-size: var(--normal-font-size);
@@ -502,9 +512,9 @@ button{
 
 /*=============== DISCOUNT ===============*/
 .discount__container{
-  background: #ffffff40;;
+  background: #ffffff40;
   border-radius: 1rem;
-  padding: 20px 0 1.5rem;
+  padding: 2.5rem 0 1.5rem;
   row-gap: .75rem;
 }
 
@@ -639,18 +649,19 @@ button{
 .footer__img-two{
   position: absolute;
   transition: .3s;
+  opacity: 50%;
 }
 
 .footer__img-one{
   width: 100px;
-  top: 6rem;
-  right: -2rem;
+  top: 10px;
+  left: 2rem;
 }
 
 .footer__img-two{
   width: 150px;
-  bottom: 4rem;
-  right: 4rem;
+  bottom: 2rem;
+  right: 2rem;
 }
 
 .footer__img-one:hover,
