@@ -13,12 +13,12 @@
     border-radius: 15px;
     text-align: center;
     animation: showBlock 0s 2s forwards;
-    visibility: hidden
+    visibility: hidden;
 }
 
 @keyframes showBlock {
     to {
-        visibility: visible
+        visibility: visible;
     }
 }
 
@@ -26,21 +26,21 @@
 	opacity: 0;
     pointer-events: none;
     transform: scale(.8);
-    transition: all .3s ease
+    transition: all .3s ease;
 }
 
 ::selection {
     color: #fff;
-    background: #fcba7f
+    background: #fcba7f;
 }
 
 .cookie img {
-    max-width: 90px
+    max-width: 90px;
 }
 
 .head-cookies {
     font-size: 20px;
-    font-weight: 600
+    font-weight: 600;
 }
 .line{
   margin: 0;
@@ -49,7 +49,7 @@
   height: 100%;
 }
 .cookie2 {
-    margin-top: 10px
+    margin-top: 10px;
 }
 
 .p-cookies {
@@ -61,7 +61,7 @@
 .cookie2 .buttons {
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
 }
 
 .buttons-coki button {
@@ -77,17 +77,17 @@
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     cursor: pointer;
-    transition: all .3s ease
+    transition: all .3s ease;
 }
 
 .buttons button:hover {
-    transform: scale(.97)
+    transform: scale(.97);
 }
 
 .buttons .item {
-    margin: 0 10px
+    margin: 0 10px;
 }
 
 .buttons a {
-    color: #fc7f7f
+    color: #fc7f7f;
 }
