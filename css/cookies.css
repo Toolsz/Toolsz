@@ -2,14 +2,14 @@
 .cookie {
     position: fixed;
     bottom: 20%;
-    left: 30px;
+    left: 5px;
     max-width: 365px;
     background: rgba( 255, 255, 255, 0.25 );
     box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
     backdrop-filter: blur( 4px );
     -webkit-backdrop-filter: blur( 4px );
     transition: 0.3s;
-    padding: 25px 25px 30px 25px;
+    padding: 25px 25px 25px 25px;
     border-radius: 15px;
     text-align: center;
     animation: showBlock 0s 2s forwards;
@@ -23,7 +23,7 @@
 }
 
 .cookie.hide {
-    opacity: 0;
+	opacity: 0;
     pointer-events: none;
     transform: scale(.8);
     transition: all .3s ease
