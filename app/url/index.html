@@ -1,195 +1,352 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
-  <meta name=viewport content="width=device-width,initial-scale=1">
+  <meta charset="UTF-8">
+  <title>CodePen - A Pen by YousefQwasmeh</title>
+  
 
-<title>YouTube to Mp3 Converter</title>
-<!-- <base href="https://ytmp3.cc/"> -->
-<!--<meta name="robots" content="index,follow"> -->
-<meta name="keywords" content="youtube,mp3,converter,downloader">
-<meta name="description" content="Convert and download youtube videos to mp3 (audio) or mp4 (video) files for free. There is no registration or software needed.">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<!-- <link rel="canonical" href="https://ytmp3.cc/en13/"> -->
-<link rel="stylesheet" href="https://ytmp3.cc/css/a/l.css">
-<link rel="stylesheet" href="https://ytmp3.cc/css/font-awesome-4.7.0/css/font-awesome.min.css">
-  <style type="text/css">  @-webkit-keyframes rotate {
-    from  { -webkit-transform: rotate(0deg); }
-    to   { -webkit-transform: rotate(360deg); }
-  }
-
-  @keyframes rotate {
-    from  { transform: rotate(0deg); }
-    to   { transform: rotate(360deg); }
-  }
-
-    .dropbox-dropin-btn, .dropbox-dropin-btn:link, .dropbox-dropin-btn:hover {
-      display: inline-block;
-      height: 14px;
-      font-family: "Lucida Grande", "Segoe UI", "Tahoma", "Helvetica Neue", "Helvetica", sans-serif;
-      font-size: 11px;
-      font-weight: 600;
-      color: #636363;
-      text-decoration: none;
-      padding: 1px 7px 5px 3px;
-      border: 1px solid #ebebeb;
-      border-radius: 2px;
-      border-bottom-color: #d4d4d4;
-        background: #fcfcfc;
-  background: -moz-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
-  background: -webkit-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
-  background: linear-gradient(to bottom, #fcfcfc 0%, #f5f5f5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fcfcfc', endColorstr='#f5f5f5',GradientType=0);  
-    }
-
-    .dropbox-dropin-default:hover, .dropbox-dropin-error:hover {
-      border-color: #dedede;
-      border-bottom-color: #cacaca;
-        background: #fdfdfd;
-  background: -moz-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
-  background: -webkit-linear-gradient(top, #fdfdfd 0%, #f5f5f5 100%);
-  background: linear-gradient(to bottom, #fdfdfd 0%, #f5f5f5 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fdfdfd', endColorstr='#f5f5f5',GradientType=0);  
-    }
-
-    .dropbox-dropin-default:active, .dropbox-dropin-error:active {
-      border-color: #d1d1d1;
-      box-shadow: inset 0 1px 1px rgba(0,0,0,0.1);
-    }
-
-    .dropbox-dropin-btn .dropin-btn-status {
-      display: inline-block;
-      width: 15px;
-      height: 14px;
-      vertical-align: bottom;
-      margin: 0 5px 0 2px;
-      background: transparent url('https://www.dropbox.com/static/images/widgets/dbx-saver-status.png') no-repeat;
-      position: relative;
-      top: 2px;
-    }
-
-    .dropbox-dropin-default .dropin-btn-status {
-      background-position: 0px 0px;
-    }
-
-    .dropbox-dropin-progress .dropin-btn-status {
-      width: 18px;
-      margin: 0 4px 0 0;
-      background: url('https://www.dropbox.com/static/images/widgets/dbx-progress.png') no-repeat center center;
-        -webkit-animation-name: rotate;
-        -webkit-animation-duration: 1.7s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-      animation-name: rotate;
-      animation-duration: 1.7s;
-      animation-iteration-count: infinite;
-      animation-timing-function: linear;
-    }
-
-    .dropbox-dropin-success .dropin-btn-status {
-      background-position: -15px 0px;
-    }
-
-    .dropbox-dropin-disabled {
-      background: #e0e0e0;
-      border: 1px #dadada solid;
-      border-bottom: 1px solid #ccc;
-      box-shadow: none;
-    }
-
-    .dropbox-dropin-disabled .dropin-btn-status {
-      background-position: -30px 0px;
-    }
-
-    .dropbox-dropin-error .dropin-btn-status {
-      background-position: -45px 0px;
-    }
-
-  @media only screen and (-webkit-min-device-pixel-ratio: 1.4) {
-      .dropbox-dropin-btn .dropin-btn-status {
-        background-image: url('https://www.dropbox.com/static/images/widgets/dbx-saver-status-2x.png');
-        background-size: 60px 14px;
-          -webkit-background-size: 60px 14px;
-      }
-
-      .dropbox-dropin-progress .dropin-btn-status {
-        background: url('https://www.dropbox.com/static/images/widgets/dbx-progress-2x.png') no-repeat center center;
-        background-size: 20px 20px;
-          -webkit-background-size: 20px 20px;
-      }
-  }
-
-    .dropbox-saver:hover, .dropbox-chooser:hover {
-      text-decoration: none;
-      cursor: pointer;
-    }
-
-    .dropbox-chooser, .dropbox-dropin-btn {
-      line-height: 11px !important;
-      text-decoration: none !important;
-      box-sizing: content-box !important;
-        -webkit-box-sizing: content-box !important;
-        -moz-box-sizing: content-box !important;
-    }
-    </style>
 </head>
 <body>
- <!-- <div id="nav">
-  <a href="en13/">Home</a><a href="faq/">FAQ</a><a href="news/">News</a><a id="theme" href="d" rel="nofollow">Theme [Dark]</a>
- </div> -->
- <div id="content"> 
-  <a href="#"><img id="logo" src="images/l.png" alt=""></a>    
-  <div id="converter_wrapper">
-   <div id="converter">
-    <div id="title">
-     Please insert a valid video URL
-    </div>   
-    <form method="post">
-     <input id="input" type="text" name="video" autocomplete="off" autofocus="">
-     <input id="submit" type="submit" value="Convert">
-    </form>     
-    <div id="progress">
-     <span>initialize</span> <i class="fa fa-cog fa-spin"></i>
-    </div>   
-    <div id="buttons">
-     <a href="" rel="nofollow">Download</a>
-     <!--<a href="#">Dropbox</a>
-     <a href="#">Convert next</a> -->
-    </div>   
-   </div>
-   <div id="formats">
-    <a id="mp3" href="">mp3</a>
-    <a id="mp4" href="">mp4</a>  
-   </div>     
-  </div> 
-  <div id="separator"></div>  
-  <div id="text">
-   <h1>YouTube to Mp3/Mp4</h1>
-    <!--
-   <p>
-    By using our converter you can easily convert YouTube videos to mp3 (audio) or mp4 (video) files and download them for free - this service works for computers, tablets and mobile devices.
-   </p>
-   <p>
-    The videos are always converted in the highest available quality. Please note that we can only convert videos up to a length of 1 hour - the limitation is necessary, so the conversion of any video will not take 
-    more than a couple of minutes.
-   </p>
-   <p>
-    Our service is for free and does not require any software or registration. By using our service you are accepting our <a href="terms-of-use/">terms of use</a>.
-   </p>
-   <p>
-    To convert a video, copy the YouTube video URL into our converter, choose a format and click the convert button. As soon as the conversion is finished you can download the file by clicking on the download button.
-   </p>
-   <p>
-    Enjoy! We hope you like our service.
-   </p> -->
-  </div>
- </div>
- <div id="footer">
-  <a href="#">Contact</a><a href="#">Copyright Claims</a><a href="#">Privacy Policy</a><a href="">Terms of use</a>
- </div> 
- <script src="https://ytmp3.cc/js/jquery-3.4.1.min.js"></script>
-<!--  <script src="https://ytmp3.cc/js/ytmp3.js?g=il9YCtnw9CDDoEwD4UGPaDeoPwrsI&amp;=_1600599825"></script> -->
+<!-- partial:index.partial.html -->
+<!doctype html>
+<html lang="en">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+<title>YouTube Downloader - Download Video and Audio from YouTube</title>
+<meta name="description" content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="robots" content="index, follow">
+<meta http-equiv="REFRESH" content="1800" />
 
-<script src="https://www.dropbox.com/static/api/2/dropins.js" id="dropboxjs" data-app-key="w33phvkazj5tt6p" async="async">
+<meta itemprop="name" content="Download Video and Audio from YouTube" />
+<meta itemprop="description" content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" />
+<meta itemprop="image" content="//y2mate.com/themes/images/256x256.png" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Download Video and Audio from YouTube" />
+<meta property="og:description" content="Online download videos from YouTube for FREE to PC, mobile. Supports downloading all formats: MP4, 3GP, WebM, HD videos, convert YouTube to MP3, M4A" />
+<meta property="og:image" content="//y2mate.com/themes/images/256x256.png" />
+<link rel="canonical" href="https:https://y2mate.com/" />
+<link rel="alternate" href="https://y2mate.com/" hreflang="x-default" />
+<link rel="alternate" href="https://y2mate.com/" hreflang="en" />
+<link rel="alternate" href="https://y2mate.com/de/" hreflang="de" /><link rel="alternate" href="https://y2mate.com/es/" hreflang="es" /><link rel="alternate" href="https://y2mate.com/fr/" hreflang="fr" /><link rel="alternate" href="https://y2mate.com/hi/" hreflang="hi" /><link rel="alternate" href="https://y2mate.com/id/" hreflang="id" /><link rel="alternate" href="https://y2mate.com/it/" hreflang="it" /><link rel="alternate" href="https://y2mate.com/jp/" hreflang="ja" /><link rel="alternate" href="https://y2mate.com/kr/" hreflang="ko" /><link rel="alternate" href="https://y2mate.com/mm/" hreflang="my" /><link rel="alternate" href="https://y2mate.com/my/" hreflang="ms" /><link rel="alternate" href="https://y2mate.com/ph/" hreflang="en-PH" /><link rel="alternate" href="https://y2mate.com/pt/" hreflang="pt" /><link rel="alternate" href="https://y2mate.com/ru/" hreflang="ru" /><link rel="alternate" href="https://y2mate.com/th/" hreflang="th" /><link rel="alternate" href="https://y2mate.com/tr/" hreflang="tr" /><link rel="alternate" href="https://y2mate.com/vi/" hreflang="vi" /><link rel="alternate" href="https://y2mate.com/zh-cn/" hreflang="zh-CN" /><link rel="alternate" href="https://y2mate.com/zh-tw/" hreflang="zh-TW" /><link rel="alternate" href="https://y2mate.com/sa/" hreflang="sa" /><link rel="alternate" href="https://y2mate.com/bn/" hreflang="bn" />
+<link rel="dns-prefetch" href="https://youtubepp.com">
+<link rel="dns-prefetch" href="https://ajax.googleapis.com">
+<link rel="dns-prefetch" href="https://getbootstrap.com">
+<link rel="dns-prefetch" href="https://maxcdn.bootstrapcdn.com">
+<link rel="dns-prefetch" href="https://www.google-analytics.com">
+<link rel="dns-prefetch" href="https://ssl.google-analytics.com">
+<link rel="dns-prefetch" href="https://s7.addthis.com">
+<link rel="dns-prefetch" href="https://m.addthis.com">
+<meta name="google-site-verification" content="PBAZjp9e-aOq3EJVlhg_MAsYxyhBeNITt2KDHCz0A9s" />
+<link rel="icon" href="https://y2mate.com/themes/images/logo.png" />
+<link rel="stylesheet" type="text/css" href="https://y2mate.com/themes/bootstrap/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="https://y2mate.com/themes/css/style.css?v=1.3.7" />
+<style>
+        .i-auto>div, #___ytsubscribe_0{height: auto !important;}
+        .i-auto>div>iframe, #___ytsubscribe_0>iframe{height: auto !important;}
+    </style>
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js" async="async"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js" async="async"></script>
+    <![endif]-->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+<script type="5a3cf412afde5a2612ed27ee-text/javascript">
+        var base_url = 'https://y2mate.com/';
+        var lang = 'en';
+        var video_id, video_service,video_extractor ;
+    </script>
+</head>
+<body id="bootstrap-themes" class="swag-line">
+<div class="container-overflow-wrap">
+<nav class="navbar navbar-tall navbar-full" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<div class="navbar-brand logo-cont">
+<a class="" href="/" style="padding: 0;">
+<img src="https://y2mate.com/themes/images/logo.png" alt="Logo y2mate.com" style="height:46px;" />
+<span id="logo-name">
+y2mate.com
+</span>
+</a>
+</div>
+<button type="button" class="navbar-toggle collapsed pull-right" data-toggle="collapse" data-target="#global-nav">
+<span class="sr-only">Y2Mate.com</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+</div>
+<div class="collapse navbar-collapse" id="global-nav">
+<div class="navbar-right">
+<ul class="nav navbar-nav">
+<li>
+<a href="https://y2mate.com/youtube-converter">YouTube Converter</a>
+</li>
+<li>
+<a href="https://y2mate.com/youtube-to-mp3">YouTube to MP3 Converter</a>
+</li>
+<li class="snav">
+<a href="https://y2mate.com/faq">FAQ</a>
+</li>
+<li class="snav">
+<a href="https://y2mate.com/terms-of-service">Copyright Notice</a>
+</li>
+<li class="dropdown">
+<a href="javascript:void(0)" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">English <span class="caret"></span></a>
+<ul class="dropdown-menu" id="menu-lang">
+<li><a data-lang="en" href="https://y2mate.com/en/youtube/UavsjEEkLbs">English</a></li>
+<li><a data-lang="de" href="https://y2mate.com/de/youtube/UavsjEEkLbs">Deutsch</a></li>
+<li><a data-lang="es" href="https://y2mate.com/es/youtube/UavsjEEkLbs">Español</a></li>
+<li><a data-lang="fr" href="https://y2mate.com/fr/youtube/UavsjEEkLbs">Français</a></li>
+<li><a data-lang="hi" href="/hi/youtube/UavsjEEkLbs">हिन्दी / Hindī</a></li>
+<li><a data-lang="id" href="/id/youtube/UavsjEEkLbs">Indonesian</a></li>
+<li><a data-lang="it" href="/it/youtube/UavsjEEkLbs">Italiano</a></li>
+<li><a data-lang="jp" href="/jp/youtube/UavsjEEkLbs">日本語</a></li>
+<li><a data-lang="kr" href="/kr/youtube/UavsjEEkLbs">한국어</a></li>
+<li><a data-lang="mm" href="/mm/youtube/UavsjEEkLbs">Myanmar (မြန်မာ)</a></li>
+<li><a data-lang="my" href="/my/youtube/UavsjEEkLbs">Malay</a></li>
+<li><a data-lang="ph" href="/ph/youtube/UavsjEEkLbs">Filipino</a></li>
+<li><a data-lang="pt" href="/pt/youtube/UavsjEEkLbs">Português</a></li>
+<li><a data-lang="ru" href="/ru/youtube/UavsjEEkLbs">Русский</a></li>
+<li><a data-lang="th" href="/th/youtube/UavsjEEkLbs">ไทย</a></li>
+<li><a data-lang="tr" href="/tr/youtube/UavsjEEkLbs">Türkçe</a></li>
+<li><a data-lang="vi" href="/vi/youtube/UavsjEEkLbs">Tiếng Việt</a></li>
+<li><a data-lang="zh-cn" href="/zh-cn/youtube/UavsjEEkLbs">简体中文</a></li>
+<li><a data-lang="zh-tw" href="/zh-tw/youtube/UavsjEEkLbs">繁體中文</a></li>
+<li><a data-lang="sa" href="/sa/youtube/UavsjEEkLbs">العربية</a></li>
+<li><a data-lang="bn" href="/bn/youtube/UavsjEEkLbs">বাঙালি</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<div style="clear: both">
+<div>
+<div class="container">
+<div class="panel panel-default m-b-0">
+<div class="panel-body">
+<div class="div-form">
+<div class="hero hero-homepage">
+<h1 class="hero-header">Download Video and Audio from YouTube</h1>
+<div class="ads_banner m-t m-b">
+</div>
+<div>
+<form class="form-inline form-search" action="/" id="search-form" name="mc-embedded-subscribe-form">
+<input class="form-control input-lg" value="" id="txt-url" name="query" type="text" placeholder="Search or paste link here...">
+<button type="button" value="Start" id="btn-submit" class="btn btn-lg">
+<span class="hidden-xs">Start </span> <span class="glyphicon glyphicon-arrow-right"></span>
+</button>
+<div id=result-suggest-container></div>
+<p class="small">By using our service you are accepting our <a class="active" href="/terms-of-service" target="_blank">terms of use</a>.</p> </form>
+</div>
+<div id="ads_spot1" style="max-width: 100%; margin-bottom: 15px; text-align: center"> </div>
+<img id="loading_img" src="https://y2mate.com/themes/images/loading.gif" style="display: none" />
+<div id="result">
+</div>
+</div>
+</div>
+<hr />
+<div class="box-guide text-left">
+<p><b>Tip:</b> Insert "<b>pp</b>" after the word "youtube" in the link to download videos and mp3 files from YouTube as a faster way.</p>
+<p><img alt="tip how to quick download youtube video mp3" style="max-height: 50px; max-width: 100%" src="https://y2mate.com/themes/images/tip-download-youtube.jpg" /> </p>
+</div>
+<div class="text-center row">
+<div class="ads-social-box">
+ 
+<div id="adv_box" style="position:relative; background-color: #fbf9ee; min-width: 300px; min-height: 250px; display: inline-block; margin-bottom: 15px;"> </div>
+<div>
+<div class="addthis_inline_share_toolbox_hfnm"></div>
+</div>
+</div>
+<div class="comment-box">
+<div>
+<div class="box-guide text-left">
+<p>If you can’t directly download video to your PC, please follow the guidelines below:</p>
+<p>Step1: Select the format you want and click "Download" button. </p>
+<p>Step2: In new window, press "CTRL + S" to save video OR right click to video, then select "Save as Video".</p>
+</div>
+<div class="p-t-md">
+<div class="fb-page" style="width: 300px !important;" data-href="https://www.facebook.com/Y2mate-TV-883952775330788" data-tabs="" data-width="300 " data-height="" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/y2mate/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/y2mate/">Y2mate</a></blockquote></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="row row-padded row-bordered homepage-grid text-center p-l-md p-r-md">
+<div class="col-xs-12 col-sm-7 text-left">
+<h5><strong>Instructions</strong></h5>
+<p>1. Search by name or directly paste the link of video you want to convert</p>
+<p>2. Click "Start" button to begin converting process</p>
+<p>3. Select the video/audio format you want to download, then click "Download" button</p>
+</div>
+<div class="col-xs-12 col-sm-5 text-left">
+<h5><strong>Features</strong></h5>
+<p>• Unlimited downloads and always free</p>
+<p>• High-speed video converter</p>
+<p>• No registration required</p>
+<p>• Support downloading with all formats</p>
+</div>
+</div>
+<div class="clearfix"></div>
+<div class="row row-padded row-bordered row-centered p-l-md p-r-md">
+<div class="col-sm-12">
+<div class="text-center">
+<h2><strong>Online YouTube Video Downloader</strong></h2>
+<h4>
+Y2mate allows you to convert & download video from YouTube, Facebook, Video, Dailymotion, Youku, etc. to Mp3, Mp4 in HD quality. Y2mate supports downloading all video formats such as: MP4, M4V, 3GP, WMV, FLV, MO, MP3, WEBM, etc. You can easily download for free thousands of videos from YouTube and other websites. </h4>
+</div>
+</div>
+</div>
+<div class="row row-padded homepage-grid text-center m-t p-l-md p-r-md featured">
+<div class="col-sm-4">
+<span class="glyphicon glyphicon-gift" aria-hidden="true"> </span>
+<h3><strong>Free Download</strong></h3>
+<h4>Unlimited conversion and free download.</h4>
+</div>
+<div class="col-sm-4">
+<span class="glyphicon glyphicon-film" aria-hidden="true"> </span>
+<h3><strong>Video & Audio</strong></h3> 
+<h4>Directly Download Video & Music.</h4>
+</div>
+<div class="col-sm-4">
+<span class="glyphicon glyphicon-saved" aria-hidden="true"> </span>
+<h3><strong>Easy Download</strong></h3>
+<h4>Fully compatible with all browsers.</h4>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script type="5a3cf412afde5a2612ed27ee-text/javascript">
+    function analyze()
+    {
+        var $form = $("#search-form"),
+            query = $form.find("input[name='query']").val(),
+            url = 'https://mate07.y2mate.com/analyze/ajax';
+
+        if(query.trim() == ""){ return;}
+        var clear_pager = true;
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {
+                url:query,
+                ajax:1
+            },
+            beforeSend : function(){
+                $("#loading_img").css('display','inline');
+                $("#result").empty();
+                $("#btn-submit").focus();
+            },
+            success: function(rpdata, textStatus, xhr){
+
+                if(xhr.status != 200){
+                    setTimeout(function() { window.location.reload(); }, 3000);
+                }
+                if(rpdata.status == 'success'){
+                    $("#loading_img").css('display','none');
+                    $("#result").empty().append(rpdata.result);
+                                    }
+                else {
+                    setTimeout(function() { window.location.reload(); }, 3000);
+                }
+
+                if (video_extractor) {
+                    if(video_extractor=='search' && video_id.indexOf('/')>-1){
+                        video_id = video_id.replace(/\//g, '!!slash!!');
+                    }
+                    var wLocation = '/' +
+                        video_extractor + '/' + encodeURIComponent(video_id);
+                    if(video_extractor=='channel' || video_extractor=='user'){
+                                            }
+
+                    window.history.replaceState (null, null, wLocation);
+                    $('#menu-lang a').each(function () {
+                        var url =  '/' + $(this).data('lang') + '/' + video_extractor +'/' + video_id;
+
+                        if(video_extractor=='channel' || video_extractor=='user'){
+                                                    }
+                        $(this).attr ('href',url);
+                    });
+
+                }
+            }
+        });
+
+            }
+
+    $( document ).ready(function() {
+        $('#txt-url').keypress(function (e) {
+            if (e.which == 13) {
+                e.preventDefault();
+                analyze();
+                return false;
+            }
+        });
+
+                analyze();
+            });
+
+    function clear_input_search(){
+        $('#txt-url').val('').focus().tooltip('hide');
+    }
+
+    function hidemgline() {
+        if ($(".mgline:eq(2)").length > 0){
+            $(".mgline:eq(2)").css("display","none"); $(".mgline:eq(3)").css("display","none");
+        } else {
+            setTimeout(function(){
+                hidemgline();
+            }, 2000);
+        }
+    }
 </script>
-</body></html>
+<footer class="footer clearfix footer-borderless">
+<p>@2016 y2mate.com</p>
+<ul class="footer-list">
+<li class="footer-list-item">
+<a class="footer-list-link" href="/about-us">About</a>
+</li>
+<li class="footer-list-item">
+<a class="footer-list-link" href="/contact-us">Contact</a>
+</li>
+<li class="footer-list-item">
+<a class="footer-list-link" href="/terms-of-service">Terms of Service</a>
+</li>
+<li class="footer-list-item">
+<a class="footer-list-link" href="/privacy-policy">Privacy Policy</a>
+</li>
+</ul>
+</footer>
+</div>
+<script src="https://content-cdn.y2mate.com/themes/js/common.js?v=2.15" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+<script src="https://y2mate.com/themes/js/suggeser.js?v=1.3" async="async" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-84863187-18" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+<script type="5a3cf412afde5a2612ed27ee-text/javascript">
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-84863187-18');
+</script>
+<script type="5a3cf412afde5a2612ed27ee-text/javascript">
+    $('html').removeClass('no-js').addClass('js');
+</script>
+<script type="5a3cf412afde5a2612ed27ee-text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5800a568d40f92ed" async="async"></script>
+<div id="fb-root"></div>
+<script async="async" defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.3&appId=530871577106565&autoLogAppEvents=1" type="5a3cf412afde5a2612ed27ee-text/javascript"></script>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/95c75768/cloudflare-static/rocket-loader.min.js" data-cf-settings="5a3cf412afde5a2612ed27ee-|49" defer=""></script></body>
+</html>
+<!-- partial -->
+  <script  src="script.js"></script>
+
+</body>
+</html>
